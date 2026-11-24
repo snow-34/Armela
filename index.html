@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06172e">
+<title>The Blue Hour Voyage — Armela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sky" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<main class="shell">
+  <header class="site-head">
+    <div class="brand"><span class="brand-mark">✦</span><span>THE BLUE HOUR <small>AN AR.MELA ADVENTURE hehehe</small></span></div>
+    <div class="journey-status"><span id="pageLabel">01 / 07</span><div class="progress"><i id="progressBar"></i></div></div>
+  </header>
+
+  <section class="viewport" aria-live="polite">
+   
+    <article class="page page-welcome active" data-page="0">
+      <div class="welcome-art">
+        <div class="big-moon"></div><div class="welcome-orbit"></div>
+        <div class="tiny-boat"><span></span></div>
+        <div class="waterline"></div>
+        <div class="welcome-title"><span class="overline">A LITTLE JOURNEY FOR</span><h1>You<span>.</span></h1><p>Some messages are better discovered.</p></div>
+      </div>
+      <div class="welcome-bottom">
+        <div><span class="eyebrow">A PERSONAL LITTLE ADVENTURE</span><p>Seven stops. A few surprises. One question at the end 🥺.</p></div>
+        <button class="button button-light" data-next> Shall we Begin the voyage <b>→</b> </button>
+      </div>
+    </article>
+
+    
+    <article class="page page-maze" data-page="1">
+      <div class="page-heading"><span class="chapter">CHAPTER 01 · THE TIDAL MAZE</span><h2>Every journey<br><em>starts somewhere.</em></h2><p>Find your way through the little sea maze. Reach the pearl at the centre to continue.</p></div>
+      <div class="maze-layout">
+        <div class="maze-board-wrap">
+          <div class="maze-board" id="mazeBoard" aria-label="Maze game"></div>
+          <div class="maze-controls">
+            <button data-move="up" aria-label="Move up">↑</button>
+            <div><button data-move="left" aria-label="Move left">←</button><button data-move="down" aria-label="Move down">↓</button><button data-move="right" aria-label="Move right">→</button></div>
+          </div>
+        </div>
+        <aside class="side-note"><div class="note-icon">⌁</div><h3>The hidden pearl</h3><p>Use the arrow keys or the buttons. The route is yours to discover.</p><div class="game-status" id="mazeStatus">Find the pearl ✦</div><button class="text-button" id="mazeReset">Reset maze ↺</button></aside>
+      </div>
+      <div class="page-actions"><span class="hint">A small detour is part of the adventure.</span><button class="button" data-next id="mazeNext" disabled>Continue <b>→</b></button></div>
+    </article>
+
+  
+    <article class="page page-ocean" data-page="2">
+      <div class="ocean-header"><span class="chapter">CHAPTER 02 · BELOW THE SURFACE</span><h2>A little treasure<br><em>under the waves.</em></h2><p>Tap the glowing pearls hiding in the water. Collect all five. ( I tried to add more fish but hmmm) </p></div>
+      <div class="underwater" id="underwater">
+        <div class="sunbeam"></div><div class="fish fish-one">🐠</div><div class="fish fish-two">🐟</div>
+        <div class="seaweed seaweed-one">♧</div><div class="seaweed seaweed-two">♧</div>
+        <button class="pearl pearl-1" aria-label="Collect pearl 1">✦</button><button class="pearl pearl-2" aria-label="Collect pearl 2">✦</button><button class="pearl pearl-3" aria-label="Collect pearl 3">✦</button><button class="pearl pearl-4" aria-label="Collect pearl 4">✦</button><button class="pearl pearl-5" aria-label="Collect pearl 5">✦</button>
+        <div class="ocean-floor"></div>
+      </div>
+      <div class="collect-row"><span id="pearlCount">PEARLS FOUND <b>0 / 5</b></span><div class="collect-track"><i id="pearlProgress"></i></div></div>
+      <div class="page-actions"><span class="hint" id="pearlHint">The sea is keeping a few secrets.</span><button class="button" id="pearlNext" data-next disabled>Keep sailing <b>→</b></button></div>
+    </article>
+
+   
+    <article class="page page-map" data-page="3">
+      <div class="map-copy"><span class="chapter">CHAPTER 03 · THE OPEN WATER</span><h2>Pick a direction.<br><em>Enjoy the view.</em></h2><p>Every good voyage needs a captain. Tap the compass points to guide the boat across the map.</p></div>
+      <div class="map-scene">
+        <div class="map-grid"></div><div class="island island-a"><span>PALM ISLE</span></div><div class="island island-b"><span>BLUE COVE</span></div>
+        <div class="route-dash"></div><div class="map-boat" id="mapBoat">⛵</div><div class="map-compass">N<small>✦</small></div>
+        <div class="map-coord" id="mapCoord">POSITION: 01</div>
+      </div>
+      <div class="sailing-controls"><button data-sail="left">←</button><button data-sail="up">↑</button><button data-sail="down">↓</button><button data-sail="right">→</button></div>
+      <div class="page-actions"><span class="hint" id="sailHint">Sail around and explore.</span><button class="button" data-next>Next destination <b>→</b></button></div>
+    </article>
+
+   
+    <article class="page page-stars" data-page="4">
+      <div class="stars-copy"><span class="chapter">CHAPTER 04 · A SKY FULL OF STORIES</span><h2>Connect the stars.<br><em>Make a little constellation.</em></h2><p>Tap the stars in order, from 1 to 5. A pattern will appear.</p></div>
+      <div class="constellation" id="constellation">
+        <svg viewBox="0 0 600 260" preserveAspectRatio="none"><polyline id="starLine" points="" /></svg>
+        <button class="star-node" data-star="1" style="left:12%;top:64%">1</button>
+        <button class="star-node" data-star="2" style="left:30%;top:24%">2</button>
+        <button class="star-node" data-star="3" style="left:51%;top:56%">3</button>
+        <button class="star-node" data-star="4" style="left:72%;top:19%">4</button>
+        <button class="star-node" data-star="5" style="left:89%;top:65%">5</button>
+        <div class="constellation-caption">THE LITTLE DIPPER OF THIS ADVENTURE</div>
+      </div>
+      <div class="star-feedback" id="starFeedback">The first star is waiting.</div>
+      <div class="page-actions"><span class="hint">A little patience makes the picture.</span><button class="button" id="starNext" data-next disabled>Follow the light <b>→</b></button></div>
+    </article>
+
+    
+    <article class="page page-lily" data-page="5">
+      <div class="lily-copy"><span class="chapter">CHAPTER 05 · A QUIET MOMENT</span><h2>For the love<br><em>of blue things.</em></h2><p>One last little discovery. Tap the lily and let it bloom.(hope the flower came out well)</p></div>
+      <button class="lily-stage" id="lilyButton" aria-label="Make the blue lily bloom">
+        <span class="lily-glow"></span>
+        <svg viewBox="0 0 320 270" role="img" aria-label="Blue lily flower">
+          <defs><linearGradient id="bluePetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0faff"/><stop offset=".48" stop-color="#8bcfff"/><stop offset="1" stop-color="#376fbd"/></linearGradient><radialGradient id="lilyCore"><stop stop-color="#fff5c8"/><stop offset="1" stop-color="#d59c43"/></radialGradient></defs>
+          <path class="stem" d="M160 144Q161 204 119 246" fill="none" stroke="#5bb7a4" stroke-width="6" stroke-linecap="round"/>
+          <path class="leaf" d="M143 199Q78 158 69 211Q106 244 143 199Z" fill="#3f9c88"/>
+          <g class="petals" transform="translate(160 126)">
+            <path d="M0 8C-34-18-44-79 0-119 44-79 34-18 0 8Z" fill="url(#bluePetal)"/>
+            <path d="M0 8C-34-18-44-79 0-119 44-79 34-18 0 8Z" fill="url(#bluePetal)" transform="rotate(60)"/>
+            <path d="M0 8C-34-18-44-79 0-119 44-79 34-18 0 8Z" fill="url(#bluePetal)" transform="rotate(120)"/>
+            <path d="M0 8C-34-18-44-79 0-119 44-79 34-18 0 8Z" fill="url(#bluePetal)" transform="rotate(180)"/>
+            <path d="M0 8C-34-18-44-79 0-119 44-79 34-18 0 8Z" fill="url(#bluePetal)" transform="rotate(240)"/>
+            <path d="M0 8C-34-18-44-79 0-119 44-79 34-18 0 8Z" fill="url(#bluePetal)" transform="rotate(300)"/>
+            <circle r="17" fill="url(#lilyCore)"/>
+            <g stroke="#fff2bb" stroke-width="2.5" stroke-linecap="round"><path d="M0-8L-8-30M5-8L15-28M-5-8L-21-23M8-4L28-16"/></g>
+          </g>
+        </svg>
+        <span class="tap-label">TAP TO BLOOM ✧</span>
+      </button>
+      <p class="lily-message" id="lilyMessage">Some things are worth taking a moment to notice.</p>
+      <div class="page-actions"><span class="hint">A little pause before the final stop.</span><button class="button" id="lilyNext" data-next disabled>One final page <b>→</b></button></div>
+    </article>
+
+    
+    <article class="page page-final" data-page="6">
+      <div class="final-art"><div class="final-moon"></div><div class="final-water"></div><div class="final-boat">⛵</div><div class="final-spark">✦</div></div>
+      <div class="final-content"><span class="chapter">THE FINAL DESTINATION, here goes nothing 🤒</span><p class="final-kicker"> Here goes the question, fingers crossed</p>
+        <h2>Can we play this<br><em>Friday night?</em></h2>
+        <p class="final-lead">If you're free, can we play some matches or maybe build something at home, specially yhe home part.</p>
+        <p class="final-body">Well, Saturday could also work, although I'll be a little busy, and Sunday I've got a few things to attend to. But Friday night? That would be spectacular if you are free ofcourse.</p>
+        <div class="final-question">What do you say?</div>
+        <div class="final-actions"><button class="button button-light" id="yesButton">YES! Friday works <b>🎮</b></button><button class="decline" id="noButton">I'm not free 😰🤧😭😭</button></div>
+        <p id="finalReply" class="final-reply" aria-live="polite"></p>
+      </div>
+      <div class="confirmed hidden" id="confirmed"><div class="confirmed-star">✦</div><span class="chapter">SQUAD STATUS</span><h2>YEssssss.<br><em>Its now Confirmed.</em></h2><p>Imagin you are playing with a pro like me, muhehehe</p><button class="button button-light" id="replayButton">Sail through again ↺</button></div>
+    </article>
+  </section>
+
+  <nav class="bottom-nav" aria-label="Adventure navigation">
+    <button id="prevButton" disabled>← <span>BACK</span></button>
+    <div class="dots" id="dots"><i class="current"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <button id="nextButton" disabled><span>NEXT</span> →</button>
+  </nav>
+  <footer class="site-foot"><span>MADE OF MIDNIGHT BLUE & A LITTLE MISCHIEF</span><span>✧</span></footer>
+</main>
+<div class="toast" id="toast" role="status"></div>
+<script src="script.js"></script>
+</body></html>
